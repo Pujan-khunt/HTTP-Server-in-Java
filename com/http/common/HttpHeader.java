@@ -35,8 +35,8 @@ public enum HttpHeader {
 
     private final String headerValue;
 
-    HttpHeader(String actualValue) {
-        this.headerValue = actualValue;
+    HttpHeader(String headerValue) {
+        this.headerValue = headerValue;
     }
 
     public String getHeaderValue() {

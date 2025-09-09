@@ -1,6 +1,6 @@
 package com.http.response;
 
-public enum HttpStatusCode {
+public enum HttpStatus {
     // Success 2xx
     OK_200(200, "OK"),
     CREATED_201(201, "Created"),
@@ -18,7 +18,7 @@ public enum HttpStatusCode {
     private final String statusMessage;
     private final int statusCode;
 
-    private HttpStatusCode(int statusCode, String statusMessage) {
+    private HttpStatus(int statusCode, String statusMessage) {
         this.statusCode = statusCode;
         this.statusMessage = statusMessage;
     }
