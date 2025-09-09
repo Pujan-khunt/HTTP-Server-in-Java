@@ -1,10 +1,10 @@
 package com.http.request;
 
-public enum HttpMethod {
+public enum HttpVerb {
     GET,
     POST,
     PUT,
     PATCH,
     DELETE,
-    PREFLIGHT
+    PREFLIGHT;
 }
