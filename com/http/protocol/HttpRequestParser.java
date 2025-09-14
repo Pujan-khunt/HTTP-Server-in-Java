@@ -72,7 +72,7 @@ public class HttpRequestParser {
             String headerValue;
 
             // Parsing each request header
-            switch (unparsedHeader[0].toLowerCase()) {
+            switch (unparsedHeader[0]) {
                 case "Host" -> header = HttpHeader.Host;
                 case "User-Agent" -> header = HttpHeader.User_Agent;
                 case "Accept" -> header = HttpHeader.Accept;
@@ -85,8 +85,11 @@ public class HttpRequestParser {
                 case "Content-Length" -> header = HttpHeader.Content_Length;
                 case "Location" -> header = HttpHeader.Location;
                 case "Connection" -> header = HttpHeader.Connection;
-                default -> throw new InvalidHttpRequestException("Invalid HTTP header: " + unparsedHeader[0]);
+                default -> header = null;
+                // default -> throw new InvalidHttpRequestException("Invalid HTTP header: " + unparsedHeader[0]);
             }
+
+            if(header == null) continue;
 
             // Parsing each header value.
             headerValue = unparsedHeader[1].trim();
