@@ -17,7 +17,7 @@ import java.util.Optional;
  * has been established, it shouldn't/can't change.
  * </p>
  */
-final class HttpRequest {
+public final class HttpRequest {
     private final HttpVerb verb;
     private final String resource;
     private final String httpVersion;

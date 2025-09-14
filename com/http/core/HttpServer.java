@@ -15,7 +15,7 @@ public class HttpServer {
     }
 
     public void start() {
-        System.out.println("Server about to start.");
+        System.out.println("Server about to start...");
 
         try {
             serverSocket = new ServerSocket(this.port);
@@ -30,6 +30,6 @@ public class HttpServer {
             System.out.println("Server error occured due to I/O error. " + e.getMessage());
         }
 
-        System.out.println("Server shutting down.");
+        System.out.println("Server shutting down...");
     }
 }

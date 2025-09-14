@@ -2,6 +2,7 @@ package com.http.request;
 
 import com.http.common.HttpHeader;
 import com.http.common.InvalidHttpRequestException;
+import com.http.common.Delimiter;
 
 import java.util.Map;
 
@@ -12,19 +13,10 @@ public class HttpRequestParser {
     private Map<HttpHeader, String> headers;
     private String body;
 
-    private final String httpRequest;
-    private final String httpRequestLineDelimiter = "\r\n";
-    private final String httpRequestStatusDelimiter = " ";
-    private final String httpHeaderDelimiter = ": ";
-
-    public HttpRequestParser(String httpRequest) {
-        this.httpRequest = httpRequest;
-    }
-
-    public HttpRequest parse() throws InvalidHttpRequestException {
-        String[] httpRequestLines = this.httpRequest.split(httpRequestLineDelimiter);
+    public HttpRequest parse(String httpRequest) throws InvalidHttpRequestException {
+        String[] httpRequestLines = httpRequest.split(Delimiter.HttpRequestLineDelimiter.getDelimiterValue());
         String statusLine = httpRequestLines[0];
-        String[] statuses = statusLine.split(httpRequestStatusDelimiter);
+        String[] statuses = statusLine.split(Delimiter.HttpRequestStatusDelimiter.getDelimiterValue());
 
         // Parsing HTTP Verb.
         switch(statuses[0]) {
@@ -50,7 +42,7 @@ public class HttpRequestParser {
         if(containsBody) {
             // Find index of line separating headers and body.
             for(int i = 1; i < httpRequestLines.length; i++) {
-                if(httpRequestLines[i].trim().equalsIgnoreCase(httpRequestLineDelimiter)) {
+                if(httpRequestLines[i].trim().equalsIgnoreCase(Delimiter.HttpRequestLineDelimiter.getDelimiterValue())) {
                     idxOfEmptyLineBetweenHeadersAndBody = i;
                     break;
                 }
@@ -70,7 +62,7 @@ public class HttpRequestParser {
 
         // Headers lie in the range [1, idx-1]
         for(int i = 1; i < idxOfEmptyLineBetweenHeadersAndBody; i++) {
-            String[] unparsedHeader = httpRequestLines[i].split(httpHeaderDelimiter);
+            String[] unparsedHeader = httpRequestLines[i].split(Delimiter.HttpHeaderDelimiter.getDelimiterValue());
             HttpHeader header;
             String headerValue;
 
