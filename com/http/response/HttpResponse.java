@@ -12,11 +12,13 @@ public class HttpResponse {
     private final HttpStatus status;
     private final Map<HttpHeader, String> headers;
     private final String httpVersion;
+    private final byte[] body;
 
     private HttpResponse(Builder builder) {
         this.status = builder.status;
         this.headers = builder.headers;
         this.httpVersion = "HTTP/1.1";
+        this.body = builder.body;
     }
 
     public HttpStatus getStatus() {
@@ -29,6 +31,10 @@ public class HttpResponse {
 
     public String getHttpVersion() {
         return httpVersion;
+    }
+
+    public byte[] getBody() {
+        return body;
     }
 
     public static class Builder {
