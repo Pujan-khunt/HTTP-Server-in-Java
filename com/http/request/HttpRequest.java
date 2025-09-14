@@ -1,12 +1,11 @@
 package com.http.request;
 
+import com.http.common.HttpHeader;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Collections;
 import java.util.Map;
 import java.util.Optional;
-import java.util.Collections;
-
-import com.http.common.HttpHeader;
 
 /**
  * <p>

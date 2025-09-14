@@ -9,9 +9,9 @@ import java.util.Map;
 
 public class HttpResponse {
 
-    private HttpStatus status;
-    private Map<HttpHeader, String> headers;
-    private String httpVersion;
+    private final HttpStatus status;
+    private final Map<HttpHeader, String> headers;
+    private final String httpVersion;
 
     private HttpResponse(Builder builder) {
         this.status = builder.status;

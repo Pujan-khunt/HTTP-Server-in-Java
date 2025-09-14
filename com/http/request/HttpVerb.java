@@ -6,5 +6,6 @@ public enum HttpVerb {
     PUT,
     PATCH,
     DELETE,
-    PREFLIGHT;
+    OPTIONS,
+    HEAD;
 }
