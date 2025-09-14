@@ -1,6 +1,6 @@
-package com.http.response;
+package com.http.model.response;
 
-import com.http.common.HttpHeader;
+import com.http.model.common.HttpHeader;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;

@@ -1,4 +1,4 @@
-package com.http.response;
+package com.http.model.response;
 
 public enum HttpStatus {
     // Success 2xx

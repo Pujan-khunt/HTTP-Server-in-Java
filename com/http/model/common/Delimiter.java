@@ -1,4 +1,4 @@
-package com.http.common;
+package com.http.model.common;
 
 public enum Delimiter {
     HttpRequestLineDelimiter("\r\n"),

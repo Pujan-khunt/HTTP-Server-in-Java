@@ -1,4 +1,4 @@
-package com.http.request;
+package com.http.model.request;
 
 public enum HttpVerb {
     GET,

@@ -1,4 +1,4 @@
-package com.http.common;
+package com.http.exception;
 
 public class InvalidHttpRequestException extends RuntimeException {
 

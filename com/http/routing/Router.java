@@ -1,12 +1,13 @@
-package com.http.core;
+package com.http.routing;
 
-import com.http.common.HttpHeader;
-import com.http.request.HttpRequest;
-import com.http.request.HttpVerb;
-import com.http.response.HttpResponse;
-import com.http.response.HttpStatus;
 import java.util.HashMap;
 import java.util.Map;
+
+import com.http.model.common.HttpHeader;
+import com.http.model.request.HttpRequest;
+import com.http.model.request.HttpVerb;
+import com.http.model.response.HttpResponse;
+import com.http.model.response.HttpStatus;
 
 public class Router {
 
@@ -28,13 +29,13 @@ public class Router {
         RouteHandler handler = routes.get(routeKey);
 
         // If no handler exists for a route key, then send a 404 NOT FOUND response.
-        if(handler == null) {
+        if (handler == null) {
             System.out.println("No Route Handler found for route key: " + routeKey);
 
             return new HttpResponse.Builder(HttpStatus.NOT_FOUND_404)
-                                .header(HttpHeader.Content_Type, "text/plain")
-                                .body("Invalid Route.")
-                                .build();
+                .header(HttpHeader.Content_Type, "text/plain")
+                .body("Invalid Route.")
+                .build();
         }
 
         return handler.handle(request);
